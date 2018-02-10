@@ -55,6 +55,10 @@ class CheckIsAuthorListener
             return;
         }
 
+        if (null === $this->tokenStorage->getToken()) {
+            return;
+        }
+
         if (null === $user = $this->tokenStorage->getToken()->getUser()) {
             return;
         }
@@ -73,7 +77,7 @@ class CheckIsAuthorListener
 
         // Check if authenticated user has an author associated with them.
         if ($author = $this->entityManager
-            ->getRepository('AppBundle:Author')
+            ->getRepository('App:Author')
             ->findOneByUsername($user->getUsername())
         ) {
             $this->session->set('user_is_author', true);
