@@ -37,10 +37,10 @@ class AdminController extends Controller
     {
         // Check whether user already has an author.
         if ($this->authorRepository->findOneByUsername($this->getUser()->getUserName())) {
-           // Redirect to dashboard.
-           $this->addFlash('error', 'Unable to create author, author already exists!');
+            // Redirect to dashboard.
+            $this->addFlash('error', 'Unable to create author, author already exists!');
 
-           return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('homepage');
         }
 
         $author = new Author();
