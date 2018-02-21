@@ -2,9 +2,8 @@
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Author;
@@ -38,10 +37,10 @@ class AdminController extends Controller
     {
         // Check whether user already has an author.
         if ($this->authorRepository->findOneByUsername($this->getUser()->getUserName())) {
-            // Redirect to dashboard.
-            $this->addFlash('error', 'Unable to create author, author already exists!');
+           // Redirect to dashboard.
+           $this->addFlash('error', 'Unable to create author, author already exists!');
 
-            return $this->redirectToRoute('homepage');
+           return $this->redirectToRoute('homepage');
         }
 
         $author = new Author();
@@ -50,7 +49,7 @@ class AdminController extends Controller
         $form = $this->createForm(AuthorFormType::class, $author);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->persist($author);
             $this->entityManager->flush($author);
 
@@ -60,8 +59,8 @@ class AdminController extends Controller
             return $this->redirectToRoute('homepage');
         }
 
-        return $this->render('Admin/create_author.html.twig', array(
+        return $this->render('admin/create_author.html.twig', [
             'form' => $form->createView()
-        ));
+        ]);
     }
 }

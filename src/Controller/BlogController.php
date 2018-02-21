@@ -2,17 +2,18 @@
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class BlogController extends Controller
 {
     /**
      * @Route("/", name="homepage")
      */
-    public function index()
+    public function indexAction()
     {
-        return $this->render('index.html.twig');
+        return $this->render('blog/index.html.twig', [
+            'controller_name' => 'BlogController',
+        ]);
     }
 }

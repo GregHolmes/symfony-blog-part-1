@@ -55,10 +55,6 @@ class CheckIsAuthorListener
             return;
         }
 
-        if (null === $this->tokenStorage->getToken()) {
-            return;
-        }
-
         if (null === $user = $this->tokenStorage->getToken()->getUser()) {
             return;
         }

@@ -36,3 +36,4 @@ class Fixtures extends Fixture
         $manager->flush();
     }
 }
+ 

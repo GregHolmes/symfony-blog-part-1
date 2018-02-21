@@ -20,7 +20,7 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "symfony/dotenv": "^4.0",
-        "symfony/maker-bundle": "^1.0",
+        "symfony/maker-bundle": "^1.1",
         "symfony/web-server-bundle": "^4.0"
     },
     "config": {
@@ -62,7 +62,7 @@
     },
     "extra": {
         "symfony": {
-            "id": "01C60TEPQ3R5H9FQGNAYSNM9KR",
+            "id": "01C6VVNW9FKQV4MR9ZFFVW26HH",
             "allow-contrib": false
         }
     }
